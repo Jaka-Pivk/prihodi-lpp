@@ -25,10 +25,10 @@ let arrivalsRes = []
 let testArray = []
 let code_id = null
 
-app.use(express.static(path.join(__dirname, 'frontend/lpp-app/dist/angular-lpp-prject/')));
+app.use(express.static(path.join(__dirname, '/dist/')));
 
 app.get('/', (req, res) => {
-    res.sendFile(path.join(__dirname, 'frontend/lpp-app/dist/angular-lpp-prject/index.html'));
+    res.sendFile(path.join(__dirname, '/dist/index.html'));
 });
 
 
