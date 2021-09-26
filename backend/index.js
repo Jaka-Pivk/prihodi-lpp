@@ -3,9 +3,10 @@ const axios = require('axios');
 const express = require("express");
 const bodyParser = require("body-parser");
 const router = express.Router();
+const path = require('path');
 const cors = require('cors');
 const app = express();
-const port = 3000;
+const port = 8080;
 
 let lat = 0;
 let lon = 0;
@@ -23,6 +24,13 @@ let arrivals = []
 let arrivalsRes = []
 let testArray = []
 let code_id = null
+
+app.use(express.static(path.join(__dirname, '../frontend/lpp-app/dist/angular-lpp-prject/')));
+
+app.get('/', (req, res) => {
+    res.sendFile(path.join(__dirname, '../frontend/lpp-app/dist/angular-lpp-prject/index.html'));
+});
+
 
 app.get('/nearbyStations', (req, res) => {
     try {
