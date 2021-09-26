@@ -1,0 +1,21 @@
+  <h1 style="margin-top: 5%;"*ngIf="arr.length > 2">Postaja: {{this.arr[2]}} - {{this.arr[1]}}</h1>
+  <h1 style="margin-top: 5%;" *ngIf="arr.length == 2">Postaja:</h1>
+<div style="display:flex;flex-direction: row;    margin-top: 20px;margin-bottom: 20px;">
+  <div class="card-body cardOne">
+    <div class="col borderColors" *ngIf="arr.length > 2">
+      <div class="row">
+        <div class="circle">{{displayNumber}}</div>
+        <div class="col">
+          <div class="row">
+            <span class="titleStyle">{{title}}</span>
+          </div>
+          <div class="row" >
+            <div *ngFor="let el of arrivalsMinutes; let i = index">
+              <span class="firstMinute">{{el}} min</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

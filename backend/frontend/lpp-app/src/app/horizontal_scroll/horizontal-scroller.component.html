@@ -1,0 +1,44 @@
+<section class="horizontal-scroll-container h-full">
+  <button (click)="showPrev()" class="prevBtn btncircle btn-primary">
+    <span>
+      <mat-icon class="nav-btns">keyboard_arrow_left</mat-icon>
+    </span>
+  </button>
+  <h1 style="font-weight: 600;">
+    Prikaz najbližjih postaj
+  </h1>
+  <div class="horizontal-scroll-content" #horizontalScrollElem>
+    <div *ngFor="let item of arrivalsArr | keyvalue;let i = index;">
+      <div class="meeting-card mr-2 h-100">
+        <div class="card-body">
+          <div class="row">
+            <div class="col-md-12 col-12">
+                <span class="card-title blue bold">
+               {{item.value.data?.station.name}}
+                </span>
+            </div>
+          </div>
+          <div class="row">
+            <div class="col-md-12 col-12">
+              <span>Številka postaje</span><br>
+              <span
+                style="background-color: #007CC3; border-radius: 0.9em;padding:0.1em 0.8em;color:white;font-weight: 600">{{item.value.data?.station.code_id}}</span>
+            </div>
+          </div>
+
+          <div class="row">
+            <div class="circle" *ngFor="let number of item.value.data.bueses"
+                 (click)="prepareMinutes(number, item.value.data?.station.code_id, item.value.data?.station.name)">{{number}}</div>
+          </div>
+
+        </div>
+      </div>
+    </div>
+  </div>
+  <button (click)="showNext()" class="nextBtn btncircle btn-primary">
+    <span>
+      <mat-icon class="nav-btns">keyboard_arrow_right</mat-icon>
+    </span>
+  </button>
+</section>
+
